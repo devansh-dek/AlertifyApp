@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -63,9 +64,9 @@ class mainActive : AppCompatActivity() {
                 checkPermissions()
             }
 
-            btnRemoveLocationTracking.setOnClickListener {
-                stopService(service)
-            }
+//            btnRemoveLocationTracking.setOnClickListener {
+//                stopService(service)
+//            }
         }
 
     }
@@ -109,8 +110,9 @@ class mainActive : AppCompatActivity() {
 
     @Subscribe
     fun receiveLocationEvent(locationEvent: LocationEvent){
-        binding.tvLatitude.text = "Latitude -> ${locationEvent.latitude}"
-        binding.tvLongitude.text = "Longitude -> ${locationEvent.longitude}"
+//        binding.tvLatitude.text = "Latitude -> ${locationEvent.latitude}"
+//        binding.tvLongitude.text = "Longitude -> ${locationEvent.longitude}"
+        Log.e("@@@@@","RECIVED LOCATION")
     }
 
 }

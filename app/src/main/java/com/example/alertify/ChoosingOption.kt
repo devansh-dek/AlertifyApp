@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.cardview.widget.CardView
+import com.example.alertify.locationaccess.EmergencyVehicle
 
 class ChoosingOption : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +15,8 @@ class ChoosingOption : AppCompatActivity() {
         val cd2 = findViewById<CardView>(R.id.card2)
 
         cd1.setOnClickListener {
-
+            val intent = Intent(this,EmergencyVehicle::class.java)
+            startActivity(intent)
         }
     cd2.setOnClickListener {
             val intent = Intent(this,mainActive::class.java)

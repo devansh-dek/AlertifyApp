@@ -11,6 +11,7 @@ import android.os.IBinder
 import android.provider.Settings
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import com.example.alertify.locationaccess.EmergencyService
 import com.google.android.gms.location.*
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
@@ -110,12 +111,13 @@ Log.e("##########","Didnt wrote on database")
     }
 
     fun getNotification():Notification{
-        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Location Updates")
+        val notification = NotificationCompat.Builder(this, EmergencyService.CHANNEL_ID)
+            .setContentTitle("Looking For Emergency Vehicles")
             .setContentText(
-                "Latitude--> ${location?.latitude}\nLongitude --> ${location?.longitude}"
+//                "Latitude--> ${location?.latitude}\nLongitude --> ${location?.longitude}"
+                "Thanks for your service!!"
             )
-            .setSmallIcon(com.example.alertify.R.mipmap.ic_launcher)
+            .setSmallIcon(com.example.alertify.R.drawable.appicon)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .setSound(null) // Make the notification silent
             .setOngoing(true)
