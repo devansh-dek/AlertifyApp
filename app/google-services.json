@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1098867892253",
+    "project_id": "altertify1",
+    "storage_bucket": "altertify1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098867892253:android:f7455bd1231ab9134766f4",
+        "android_client_info": {
+          "package_name": "com.example.alertify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcYG_THAd8obhHXv1AHoS8Vu4fbv27Ao4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
