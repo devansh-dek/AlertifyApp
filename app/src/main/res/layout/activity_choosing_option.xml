@@ -1,93 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@color/blueish"
+    android:background="@drawable/backgroundpage"
     android:layout_height="match_parent"
     tools:context=".ChoosingOption">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Use as"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+    android:layout_margin="5dp"
+
+    android:textSize="36sp"
+    android:gravity="center"
+    android:textStyle="bold"
+        android:textAppearance="@color/lavender"
+
+    android:fontFamily="@font/merriweathersans_medium"
+
+    android:elevation="5dp"
+    ></TextView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_gravity="top"
-android:layout_marginTop="80dp"
+        android:layout_marginTop="80dp"
         android:layout_marginHorizontal="30dp"
         android:layout_marginBottom="30dp"
-        android:id="@+id/card1"
-
         android:elevation="20dp"
         app:cardBackgroundColor="@color/darkblueish"
-        app:cardCornerRadius="20dp"
+        app:cardCornerRadius="20dp">
 
-        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
->
+            android:orientation="vertical">
+
+            <!-- Placeholder decorative element or image -->
+
+            <!-- Text content -->
+            <ImageView
+                android:layout_width="286dp"
+                android:layout_height="175dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:contentDescription="Emergency Services Decor"
+                android:scaleType="centerCrop"
+                android:src="@drawable/vehichelsemergency" />
+
             <TextView
                 android:gravity="center"
-                android:layout_margin="5dp"
-                android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Emergency Services"
-            android:textColor="@color/white"
-            ></TextView>
-
-        <ImageView
-            android:layout_width="310dp"
-            android:layout_height="196dp"
-            android:src="@drawable/vehicles"
-            android:layout_gravity="center"
-
-            ></ImageView>
+                android:layout_margin="8dp"
+                android:textSize="20sp"
+                android:text="Emergency Services"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card2"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-android:id="@+id/card2"
-
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="30dp"
         android:elevation="20dp"
         app:cardBackgroundColor="@color/darkblueish"
-        app:cardCornerRadius="20dp"
-
-        >
+        app:cardCornerRadius="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
+            <!-- Placeholder decorative element or image -->
+            <ImageView
+                android:layout_width="286dp"
+                android:layout_height="189dp"
+                android:layout_weight="1"
+                android:contentDescription="Volunteers Decor"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:src="@drawable/personincar" />
+
+            <!-- Text content -->
             <TextView
                 android:gravity="center"
-                android:layout_margin="5dp"
-                android:textSize="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="20sp"
                 android:text="Volunteers"
                 android:textColor="@color/white"
-                ></TextView>
-
-            <ImageView
-                android:layout_width="310dp"
-                android:layout_height="196dp"
-                android:src="@drawable/personincar"
-                android:layout_gravity="center"
-
-                ></ImageView>
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
-
-
     </androidx.cardview.widget.CardView>
 
+    <!-- Additional space-filling view or decorative element -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

@@ -1,51 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
-
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/blueish"
-
         tools:context=".mainActive">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="165dp"
-            android:layout_height="198dp"
-            android:src="@drawable/emg"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.313">
-
-
-        </ImageView>
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnStartLocationTracking"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:padding="12dp"
+            android:layout_gravity="bottom|center"
+            android:layout_margin="16dp"
             android:text="Start Location Tracking"
-
-            app:cornerRadius="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.345" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:cornerRadius="20dp" />
+    </FrameLayout>
 </layout>

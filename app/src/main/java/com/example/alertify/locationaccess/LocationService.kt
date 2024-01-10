@@ -13,6 +13,7 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.example.alertify.locationaccess.EmergencyService
 import com.google.android.gms.location.*
+import com.google.android.gms.maps.GoogleMap
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -40,6 +41,7 @@ class LocationService : Service() {
 //        Settings.Secure.ANDROID_ID
 //    )
 private lateinit var dbref : DatabaseReference
+    private lateinit var mMap: GoogleMap
 
 var notifcationChoose = 0
 
@@ -268,4 +270,5 @@ Log.e("##########","Didnt wrote on database")
         super.onDestroy()
         removeLocationUpdates()
     }
+
 }

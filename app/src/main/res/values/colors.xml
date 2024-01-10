@@ -4,9 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blueish">#bdd9ff</color>
     <color name="darkblueish">#455aad</color>
-    <color name="reddish">#FF1F00</color>
+    <color name="reddish">#001F3F</color>
     <color name="purple">#8692f7</color>
     <color name="lavender">#E6E6FA
     </color>
+    <color name="superb_button_color">#3F51B5</color> <!-- Use your desired color code -->
 
 </resources>
