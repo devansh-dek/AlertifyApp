@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -62,6 +63,7 @@ class mainActive : AppCompatActivity() {
         binding.apply {
             btnStartLocationTracking.setOnClickListener {
                 checkPermissions()
+                Toast.makeText(applicationContext,"Location Tracking Started! ",Toast.LENGTH_SHORT).show()
             }
 
 //            btnRemoveLocationTracking.setOnClickListener {
