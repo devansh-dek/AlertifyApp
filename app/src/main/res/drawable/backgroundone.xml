@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/background_layer.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background color -->
+    <item android:drawable="@color/blueish" />
+
+    <!-- Drawable wave -->
+    <item
+        android:drawable="@drawable/wave"
+        android:gravity="bottom"
+         />
+
+</layer-list>
