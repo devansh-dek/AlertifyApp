@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alertify"
         tools:targetApi="31">
-
+        <activity
+            android:name=".informationpages.infotwo"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -34,11 +36,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBTV2quPiIELkVHOD2FuHwdY8UuwNY8OWQ" />
 
-
         <activity
             android:name=".locationaccess.EmergencySignIn"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".locationaccess.EmergencyService"
@@ -47,7 +48,7 @@
 
         <activity
             android:name=".locationaccess.EmergencyVehicle"
-            android:exported="true"></activity>
+            android:exported="true" />
 
         <service
             android:name=".LocationService"
@@ -66,11 +67,17 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".informationpages.infoone"
+            android:exported="true">
+
         </activity>
     </application>
 

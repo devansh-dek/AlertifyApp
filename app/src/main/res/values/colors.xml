@@ -9,5 +9,6 @@
     <color name="lavender">#E6E6FA
     </color>
     <color name="superb_button_color">#3F51B5</color> <!-- Use your desired color code -->
+    <color name="plainblue">#0066FF</color> <!-- Use your desired color code -->
 
 </resources>
