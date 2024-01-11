@@ -34,10 +34,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBTV2quPiIELkVHOD2FuHwdY8UuwNY8OWQ" />
 
-        <activity
-            android:name=".locationaccess.delit"
-            android:exported="false"
-            android:label="@string/title_activity_delit" />
+
         <activity
             android:name=".locationaccess.EmergencySignIn"
             android:exported="true"

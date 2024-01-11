@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/blueish"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".mainActive">
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="302dp"
-        android:layout_height="311dp"
-        android:background="@color/blueish"
+        android:layout_width="239dp"
+        android:layout_height="217dp"
+        android:background="@color/white"
 
-        android:src="@drawable/appicon"
+        android:src="@drawable/ambu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,27 +27,26 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="108dp"
         android:fontFamily="@font/merriweathersans_medium"
-        android:text="Clear the way for safety, \n because every moment counts"
-        android:textStyle="bold"
         android:gravity="center"
+        android:text="Clear the way for safety, \n because every moment counts"
         android:textColor="@color/reddish"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0"></TextView>
+        app:layout_constraintVertical_bias="0.636"></TextView>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:textColor="@color/reddish"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinssemibold"
 
-        android:fontFamily="@font/merriweathersans_bold"
         android:text="ALERTIFY"
+        android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
