@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.IBinder
 import android.provider.Settings
 import android.util.Log
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import com.example.alertify.locationaccess.EmergencyService
 import com.google.android.gms.location.*
@@ -100,22 +101,20 @@ var notifcationChoose = 0
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
 
-            if(ring==0){
-                Log.e("^^^^^^^^^^","Played first one ")
+
                 val notificationChannel =
                     NotificationChannel(CHANNEL_ID, "locations", NotificationManager.IMPORTANCE_LOW)
                 val notificationManager =
                     getSystemService(NotificationManager::class.java)
                 notificationManager?.createNotificationChannel(notificationChannel)
-                ring++
-            }
-            else{
-                val notificationChannel2 =
-                    NotificationChannel(CHANNEL_IDD, "locations", NotificationManager.IMPORTANCE_LOW)
-                val notificationManager =
+
+        val notificationChannel1 =
+                    NotificationChannel(CHANNEL_IDD, "locations", NotificationManager.IMPORTANCE_HIGH)
+                val notificationManager1 =
                     getSystemService(NotificationManager::class.java)
-                notificationManager?.createNotificationChannel(notificationChannel2)
-            }
+                notificationManager1?.createNotificationChannel(notificationChannel1)
+
+
 
 
         }
@@ -157,15 +156,16 @@ var notifcationChoose = 0
         databaseRef.child("userlocation").child(deviceId).setValue(locationlogging)
             .addOnSuccessListener {
               //  Toast.makeText(this,"Wriiten on data base ",Toast.LENGTH_SHORT).show()
-                Log.e("@@@@@@@@@@@@","DATA SENTTTTTTTTTTT")
+//                Log.e("@@@@@@@@@@@@","DATA SENTTTTTTTTTTT")
 
             }
             .addOnFailureListener {
-                //Toast.makeText(this,"COULDNT WRITE  on data base ",Toast.LENGTH_SHORT).show()
-Log.e("##########","Didnt wrote on database")
+                Toast.makeText(this,"COULDNT WRITE  on data base ", Toast.LENGTH_SHORT).show()
+//Log.e("##########","Didnt wrote on database")
             }
 //        if(ring==0){
-        startForeground(NOTIFICATION_ID,getNotification())
+//        startForeground(NOTIFICATION_ID,getNotification())
+        startForeground(NOTIFICATION_IDD,getNotification())
 //        ring++
 //        }
 //        else{
@@ -241,7 +241,7 @@ Log.e("##########","Didnt wrote on database")
         } else {
             Log.e("%%%%%%%%%", "Displayed Second one ${notifcationChoose}")
 
-            val notification = NotificationCompat.Builder(this, EmergencyService.CHANNEL_ID)
+            val notification = NotificationCompat.Builder(this, LocationService.CHANNEL_ID)
                 .setContentTitle("Emergency Vehicle Nearby!!!!")
                 .setContentText("Please Give Space Vehicle Approaching")
                 .setSmallIcon(com.example.alertify.R.drawable.appicon)
@@ -249,7 +249,19 @@ Log.e("##########","Didnt wrote on database")
                 .setOngoing(true)
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                notification.setChannelId(CHANNEL_ID)
+//                Log.e("!___--------------","the value of ring is ${ring}")
+                if(ring==0){
+                    notification.setChannelId(CHANNEL_IDD)
+ring++
+                }
+                else{
+                    notification.setChannelId(CHANNEL_ID)
+ring++
+                    if(ring==20){
+                        ring=0
+                    }
+
+                }
             }
 
 

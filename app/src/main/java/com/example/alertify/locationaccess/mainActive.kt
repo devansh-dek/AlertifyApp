@@ -191,14 +191,73 @@ class mainActive : AppCompatActivity() , OnMapReadyCallback {
                             Log.e("&&&&&&&&&&&","vechicle nearby moye moye")
                         }
                         else{
+                            Toast.makeText(applicationContext,"No EmergencyVehicles Nearby!",Toast.LENGTH_SHORT).show()
                             Log.e("&&&&&&&&&&&","vechicle IS NOT NEARBY moye moye")
 
+                            mMap.clear()
+
+                            val sydney = LatLng(locationEvent?.latitude!!, locationEvent?.longitude!!)
+                            val UserLOcation = LatLng(user?.latitude!!, user?.longitude!!)
+                            // Replace R.drawable.your_custom_marker_icon with the actual resource ID of your custom marker icon
+                            val originalIcon = BitmapFactory.decodeResource(resources, R.drawable.ambulance)
+
+// Specify the desired width and height for the custom icon
+                            val width = 150  // in pixels
+                            val height = 150 // in pixels
+
+// Scale the original bitmap to the desired size
+                            val scaledIcon = Bitmap.createScaledBitmap(originalIcon, width, height, false)
+
+// Create a BitmapDescriptor from the scaled bitmap
+                            val icon = BitmapDescriptorFactory.fromBitmap(scaledIcon)
+
+// Add the marker with the custom icon
+                            mMap.addMarker(MarkerOptions().position(sydney).title("YOU"))
+
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+                            val zoomLevel = 18.0f
+// Create a CameraUpdate object to zoom to the specified level
+                            val cameraUpdate2 = CameraUpdateFactory.newLatLngZoom(sydney, zoomLevel)
+
+// Apply the camera update
+                            mMap.moveCamera(cameraUpdate2)
                         }
 
                     }
 
 
 
+                }
+                else{
+                    Toast.makeText(applicationContext,"No EmergencyVehicles Nearby!",Toast.LENGTH_SHORT).show()
+                    Log.e("&&&&&&&&&&&","vechicle IS NOT NEARBY moye moye")
+
+                    mMap.clear()
+
+                    val sydney = LatLng(locationEvent?.latitude!!, locationEvent?.longitude!!)
+                    // Replace R.drawable.your_custom_marker_icon with the actual resource ID of your custom marker icon
+                    val originalIcon = BitmapFactory.decodeResource(resources, R.drawable.ambulance)
+
+// Specify the desired width and height for the custom icon
+                    val width = 150  // in pixels
+                    val height = 150 // in pixels
+
+// Scale the original bitmap to the desired size
+                    val scaledIcon = Bitmap.createScaledBitmap(originalIcon, width, height, false)
+
+// Create a BitmapDescriptor from the scaled bitmap
+                    val icon = BitmapDescriptorFactory.fromBitmap(scaledIcon)
+
+// Add the marker with the custom icon
+                    mMap.addMarker(MarkerOptions().position(sydney).title("YOU"))
+
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+                    val zoomLevel = 18.0f
+// Create a CameraUpdate object to zoom to the specified level
+                    val cameraUpdate2 = CameraUpdateFactory.newLatLngZoom(sydney, zoomLevel)
+
+// Apply the camera update
+                    mMap.moveCamera(cameraUpdate2)
                 }
 
             }
