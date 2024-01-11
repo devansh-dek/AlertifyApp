@@ -15,3 +15,4 @@ password = 1234
 The user authentication is done using firebase too.
 
 In India more than 24,000 people die everyday :( due to delay in emergency services . Our project works on the very same problem. 
+Also app works 100%.
