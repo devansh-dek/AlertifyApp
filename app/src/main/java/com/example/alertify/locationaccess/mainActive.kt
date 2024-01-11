@@ -1,5 +1,6 @@
 package com.example.alertify
 
+import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -7,11 +8,13 @@ import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.alertify.databinding.ActivityUserBinding
+import com.example.alertify.otherstuff.CustomDialogBox
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -31,6 +34,7 @@ import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
 
+
 class mainActive : AppCompatActivity() , OnMapReadyCallback {
 
     private var _binding: ActivityUserBinding? = null
@@ -40,9 +44,11 @@ class mainActive : AppCompatActivity() , OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
 var ringg=0
-
+var mapset=0
     private var service: Intent?=null
 
+    private val dialog: Dialog? = null
+    private val ShowDialog: Button? = null
     private val backgroundLocation =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) {
             if (it) {
@@ -86,12 +92,21 @@ var ringg=0
         binding.apply {
             btnStartLocationTracking.setOnClickListener {
                 checkPermissions()
-                Toast.makeText(applicationContext,"Location Tracking Started! ",Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext,"Started Sharing Location!! ",Toast.LENGTH_SHORT).show()
             }
 
-//            btnRemoveLocationTracking.setOnClickListener {
-//                stopService(service)
-//            }
+            btnStopLocationTracking.setOnClickListener {
+                stopService(service)
+                Toast.makeText(applicationContext,"Location Sharing Stopped! ",Toast.LENGTH_SHORT).show()
+
+
+            }
+            fab.setOnClickListener {
+                Toast.makeText(applicationContext,"Question! ",Toast.LENGTH_SHORT).show()
+//                val customDialog = CustomDialogBox(applicationContext) // Replace 'this' with your context
+//                customDialog.show()
+
+            }
         }
 
     }
@@ -137,7 +152,7 @@ var ringg=0
     fun receiveLocationEvent(locationEvent: LocationEvent){
 //        binding.tvLatitude.text = "Latitude -> ${locationEvent.latitude}"
 //        binding.tvLongitude.text = "Longitude -> ${locationEvent.longitude}"
-        Log.e("@@@@@","RECIVED LOCATION")
+//        Log.e("@@@@@","RECIVED LOCATION")
 
 
         dbref.addValueEventListener(object : ValueEventListener {
@@ -152,7 +167,7 @@ var ringg=0
                         Log.e("$$$$$$$$$","the value of lat and long are ${user?.latitude}")
                         val distance = calculateDistance(locationEvent.latitude!!, locationEvent.longitude!!, user?.latitude!!,user?.longitude!!)
                         if (distance <= 0.5) {
-                            Log.e("(((((((((","Came inside the location under five zone")
+//                            Log.e("(((((((((","Came inside the location under five zone")
                             mMap.clear()
 
                             val sydney = LatLng(locationEvent?.latitude!!, locationEvent?.longitude!!)
@@ -252,12 +267,20 @@ var ringg=0
                     mMap.addMarker(MarkerOptions().position(sydney).title("YOU"))
 
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-                    val zoomLevel = 18.0f
-// Create a CameraUpdate object to zoom to the specified level
-                    val cameraUpdate2 = CameraUpdateFactory.newLatLngZoom(sydney, zoomLevel)
 
 // Apply the camera update
-                    mMap.moveCamera(cameraUpdate2)
+                    if(mapset==0){
+                        val zoomLevel = 18.0f
+// Create a CameraUpdate object to zoom to the specified level
+                        val cameraUpdate2 = CameraUpdateFactory.newLatLngZoom(sydney, zoomLevel)
+
+                        mMap.moveCamera(cameraUpdate2)
+
+                    }
+                    mapset++
+                    if(mapset==15){
+                        mapset=0
+                    }
                 }
 
             }
@@ -276,7 +299,7 @@ var ringg=0
         lat1: Double,
         lon1: Double,
         lat2: Double,
-        lon2: Double
+        lon2: Double,
     ): Double {
         val R = 6371.0 // Earth radius in kilometers
 

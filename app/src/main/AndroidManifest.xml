@@ -63,7 +63,9 @@
             android:exported="false" />
         <activity
             android:name=".mainActive"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
