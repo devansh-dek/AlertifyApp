@@ -39,7 +39,7 @@ class mainActive : AppCompatActivity() , OnMapReadyCallback {
     private lateinit var dbref : DatabaseReference
 
     private lateinit var mMap: GoogleMap
-
+var ringg=0
 
     private var service: Intent?=null
 

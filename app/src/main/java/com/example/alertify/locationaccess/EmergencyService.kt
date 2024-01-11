@@ -45,7 +45,7 @@ class EmergencyService : Service() {
     private var notificationManager: NotificationManager? = null
 
     private var location: Location?=null
-
+  lateinit  var databaseRef : DatabaseReference
     override fun onCreate() {
         super.onCreate()
         deviceId = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
@@ -103,7 +103,7 @@ class EmergencyService : Service() {
             longitude = location?.longitude
         )
         )
-        var databaseRef : DatabaseReference = Firebase.database.reference
+         databaseRef  = Firebase.database.reference
         val locationlogging = LocationEvent(location?.latitude,location?.longitude)
         databaseRef.child("EmergencyVehicleLocation").child(deviceId).setValue(locationlogging)
             .addOnSuccessListener {
@@ -147,5 +147,12 @@ class EmergencyService : Service() {
     override fun onDestroy() {
         super.onDestroy()
         removeLocationUpdates()
+        databaseRef.child("EmergencyVehicleLocation").child(deviceId).removeValue()
+            .addOnSuccessListener {
+                Log.d("Firebase", "Child node deleted successfully")
+            }
+            .addOnFailureListener { error ->
+                Log.e("Firebase", "Error deleting child node: $error")
+            }
     }
 }
