@@ -14,7 +14,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.alertify.databinding.ActivityUserBinding
-import com.example.alertify.otherstuff.CustomDialogBox
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -36,6 +35,7 @@ import kotlin.math.sqrt
 
 
 class mainActive : AppCompatActivity() , OnMapReadyCallback {
+    lateinit var dialog : Dialog
 
     private var _binding: ActivityUserBinding? = null
     private val binding: ActivityUserBinding
@@ -47,7 +47,6 @@ var ringg=0
 var mapset=0
     private var service: Intent?=null
 
-    private val dialog: Dialog? = null
     private val ShowDialog: Button? = null
     private val backgroundLocation =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) {
@@ -81,6 +80,15 @@ var mapset=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityUserBinding.inflate(layoutInflater)
+
+        dialog = Dialog(this)
+        dialog.setContentView(R.layout.questionbox)
+//        dialog.window?.setBackgroundDrawable(getDrawable(R.drawable.ambulance))
+        var buttonGood = dialog.findViewById<Button>(R.id.btn1)
+        buttonGood.setOnClickListener {
+            dialog.dismiss()
+        }
+
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -102,9 +110,11 @@ var mapset=0
 
             }
             fab.setOnClickListener {
-                Toast.makeText(applicationContext,"Question! ",Toast.LENGTH_SHORT).show()
-//                val customDialog = CustomDialogBox(applicationContext) // Replace 'this' with your context
-//                customDialog.show()
+//                Toast.makeText(applicationContext,"Question! ",Toast.LENGTH_SHORT).show()
+
+                dialog.show()
+
+
 
             }
         }
