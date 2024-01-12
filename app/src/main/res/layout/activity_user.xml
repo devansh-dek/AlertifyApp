@@ -59,8 +59,8 @@
                 android:background="@drawable/btngrey"
                 android:layout_gravity="center"
                 android:layout_margin="16dp"
-                android:textStyle="bold"
-                android:text="Stop Sharing Location "
+            android:textStyle="bold"
+            android:text="Stop Sharing Location "
                 app:cornerRadius="20dp" />
         </LinearLayout>
     </FrameLayout>
