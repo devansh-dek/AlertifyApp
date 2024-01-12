@@ -1,5 +1,6 @@
 package com.example.alertify.locationaccess
 
+import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -8,6 +9,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -29,6 +31,7 @@ import org.greenrobot.eventbus.Subscribe
 class EmergencyVehicle : AppCompatActivity() , OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+    lateinit var dialog : Dialog
 
     private var _binding: ActivityEmergencyVehicleBinding ? = null
     private val binding: ActivityEmergencyVehicleBinding
@@ -73,8 +76,27 @@ class EmergencyVehicle : AppCompatActivity() , OnMapReadyCallback {
         setContentView(binding.root)
 //_binding = ActivityUserBinding.inflate(layoutInflater)
 //        service = Intent(this,LocationService::class.java)
-        service = Intent(this, EmergencyService::class.java)
 
+        dialog = Dialog(this)
+        dialog.setContentView(R.layout.infoboxes)
+//        dialog.window?.setBackgroundDrawable(getDrawable(R.drawable.ambulance))
+        var buttonGood = dialog.findViewById<Button>(R.id.btn1)
+        buttonGood.setOnClickListener {
+            dialog.dismiss()
+        }
+
+binding.fab.setOnClickListener {
+
+    dialog.show()
+
+}
+
+
+        service = Intent(this, EmergencyService::class.java)
+        supportActionBar?.apply {
+            title = "Alertify"
+            setDisplayHomeAsUpEnabled(true) // Enable the back button
+        }
         binding.apply {
             btnStartLocationTracking.setOnClickListener {
                 checkPermissions()

@@ -9,8 +9,11 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".locationaccess.EmergencyVehicle"
 
+        >
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
@@ -18,11 +21,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-app:rippleColor="@color/black"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/white"
+
+            app:rippleColor="@color/black"
             app:srcCompat="@drawable/baseline_question_mark_24"
+
             />
 
 
