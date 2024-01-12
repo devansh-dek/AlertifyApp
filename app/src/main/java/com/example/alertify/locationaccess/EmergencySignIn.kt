@@ -81,6 +81,12 @@ class EmergencySignIn : AppCompatActivity() {
 //            }
             loginUser()
         })
+        binding.register.setOnClickListener {
+var intent = Intent(this,EmergencyRegister::class.java)
+            startActivity(intent)
+
+
+        }
 
 
         setContentView(binding.root)

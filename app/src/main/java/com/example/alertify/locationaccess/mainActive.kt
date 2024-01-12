@@ -196,8 +196,8 @@ var mapset=0
                             val icon = BitmapDescriptorFactory.fromBitmap(scaledIcon)
 
 // Add the marker with the custom icon
-                            mMap.addMarker(MarkerOptions().position(sydney).title("Emergency Vehicle").icon(icon))
-                            mMap.addMarker(MarkerOptions().position(UserLOcation).title("YOU"))
+                            mMap.addMarker(MarkerOptions().position(sydney).title("YOU"))
+                            mMap.addMarker(MarkerOptions().position(UserLOcation).title("EMERGENCY VEHICLE").icon(icon))
 
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
                             val zoomLevel = 18.0f
@@ -240,7 +240,7 @@ var mapset=0
                             mMap.addMarker(MarkerOptions().position(sydney).title("YOU"))
 
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-                            val zoomLevel = 18.0f
+                            val zoomLevel = 17.0f
 // Create a CameraUpdate object to zoom to the specified level
                             val cameraUpdate2 = CameraUpdateFactory.newLatLngZoom(sydney, zoomLevel)
 
