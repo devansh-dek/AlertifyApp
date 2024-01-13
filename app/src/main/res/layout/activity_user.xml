@@ -24,6 +24,17 @@
             android:backgroundTint="@color/white"
             app:srcCompat="@drawable/baseline_question_mark_24"
             />
+ <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="80dp"
+            android:backgroundTint="@color/white"
+            app:srcCompat="@drawable/baseline_linked_camera_24"
+            />
 
         <fragment
             android:id="@+id/map"

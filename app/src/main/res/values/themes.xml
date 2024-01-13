@@ -12,6 +12,7 @@
         <item name="android:elevation">4dp</item>
         <item name="android:stateListAnimator">@null</item> <!-- Remove default button animation -->
     </style>
+    <style name="Theme.GeminiAiChatbot" parent="android:Theme.Material.Light.NoActionBar" />
 
     <style name="Theme.Alertify" parent="Base.Theme.Alertify" />
 </resources>

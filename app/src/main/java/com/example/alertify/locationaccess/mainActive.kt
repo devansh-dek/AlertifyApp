@@ -14,6 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.alertify.databinding.ActivityUserBinding
+import com.example.alertify.gem.MainActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -115,6 +116,11 @@ var mapset=0
                 dialog.show()
 
 
+
+            }
+            fab2.setOnClickListener {
+                var intent = Intent(applicationContext,MainActivity::class.java)
+                startActivity(intent)
 
             }
         }

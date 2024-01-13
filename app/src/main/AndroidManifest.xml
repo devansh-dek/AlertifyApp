@@ -68,6 +68,13 @@
             android:name=".mainActive"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light" />
+
+        <activity android:name=".gem.MainActivity"
+            android:exported="true">
+
+
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
