@@ -13,11 +13,13 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
+import com.example.alertify.ChoosingOption
 import com.example.alertify.LocationEvent
 import com.example.alertify.LocationService
 import com.example.alertify.R
 import com.example.alertify.databinding.ActivityEmergencyVehicleBinding
 import com.example.alertify.databinding.ActivityUserBinding
+import com.example.alertify.gem.MainActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -77,6 +79,13 @@ class EmergencyVehicle : AppCompatActivity() , OnMapReadyCallback {
 //_binding = ActivityUserBinding.inflate(layoutInflater)
 //        service = Intent(this,LocationService::class.java)
 
+        binding.fab2.setOnClickListener {
+            var intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+
+        }
+
+
         dialog = Dialog(this)
         dialog.setContentView(R.layout.infoboxes)
 //        dialog.window?.setBackgroundDrawable(getDrawable(R.drawable.ambulance))
@@ -97,6 +106,7 @@ binding.fab.setOnClickListener {
             title = "Alertify"
             setDisplayHomeAsUpEnabled(true) // Enable the back button
         }
+
         binding.apply {
             btnStartLocationTracking.setOnClickListener {
                 checkPermissions()
@@ -112,7 +122,13 @@ binding.fab.setOnClickListener {
         mapFragment.getMapAsync(this)
 
     }
+    override fun onSupportNavigateUp(): Boolean {
+        var itent  = Intent(this,ChoosingOption::class.java)
+        startActivity(itent)
 
+        onBackPressed()
+        return true
+    }
     override fun onStart() {
         super.onStart()
         if(!EventBus.getDefault().isRegistered(this)){

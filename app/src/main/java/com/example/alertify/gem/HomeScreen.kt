@@ -112,7 +112,7 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Gemini AI ChatBot") },
+                title = { Text(text = "Gemini Traffic ChatBot") },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     titleContentColor = MaterialTheme.colorScheme.onPrimary
@@ -142,7 +142,7 @@ fun HomeScreen(
                         onValueChange = {
                             userQuestion = it
                         },
-                        label = { Text(text = "User Input") },
+                        label = { Text(text = "Ask A Question") },
                         placeholder = { Text(text = "Upload Image and ask question") },
                         modifier = Modifier.fillMaxWidth(0.83f)
                     )
