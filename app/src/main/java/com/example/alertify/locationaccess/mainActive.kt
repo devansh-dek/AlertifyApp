@@ -286,7 +286,7 @@ var mapset=0
 
 // Apply the camera update
                     if(mapset==0){
-                        val zoomLevel = 18.0f
+                        val zoomLevel = 17.0f
 // Create a CameraUpdate object to zoom to the specified level
                         val cameraUpdate2 = CameraUpdateFactory.newLatLngZoom(sydney, zoomLevel)
 
@@ -294,7 +294,7 @@ var mapset=0
 
                     }
                     mapset++
-                    if(mapset==15){
+                    if(mapset==30){
                         mapset=0
                     }
                 }

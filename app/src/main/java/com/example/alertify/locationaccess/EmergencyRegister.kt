@@ -33,26 +33,38 @@ class EmergencyRegister : AppCompatActivity() {
             var usernamee = binding.username.text.toString()
             var passwordd = binding.password.text.toString()
             var namee = binding.fullname.text.toString()
+            var idcard = binding.AbulanceCard.text.toString()
             val regis = userdeatails(usernamee,passwordd)
             var databaseRef : DatabaseReference = Firebase.database.reference
 
-            databaseRef.child("Vehicles").child(namee).setValue(regis)
-                .addOnSuccessListener {
-                      Toast.makeText(this,"Wriiten on data base ",Toast.LENGTH_SHORT).show()
-                Log.e("^^^^^^^^^","DATA are ${namee} and ${passwordd} and ${usernamee}")
+            if (usernamee.isBlank() || passwordd.isBlank() || namee.isBlank() ||idcard.isBlank()) {
+                // Check if username or password is empty
+                Toast.makeText(this, "Username or password cannot be empty", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            else{
 
-                }
-                .addOnFailureListener {
-                    Toast.makeText(this,"COULDNT WRITE  on data base ", Toast.LENGTH_SHORT).show()
+                databaseRef.child("Vehicles").child(namee).setValue(regis)
+                    .addOnSuccessListener {
+                        Toast.makeText(this,"Wriiten on data base ",Toast.LENGTH_SHORT).show()
+                        Log.e("^^^^^^^^^","DATA are ${namee} and ${passwordd} and ${usernamee}")
+
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this,"COULDNT WRITE  on data base ", Toast.LENGTH_SHORT).show()
 //Log.e("##########","Didnt wrote on database")
-                }
+                    }
+                Toast.makeText(this,"User added Successfully",Toast.LENGTH_SHORT).show()
+                var intent = Intent(this,EmergencyVehicle::class.java)
+                startActivity(intent)
+                finish()
+
+            }
 
 
 
-            Toast.makeText(this,"User added Successfully",Toast.LENGTH_SHORT).show()
-            var intent = Intent(this,EmergencyVehicle::class.java)
-            startActivity(intent)
-            finish()
+
+
 
         }
 

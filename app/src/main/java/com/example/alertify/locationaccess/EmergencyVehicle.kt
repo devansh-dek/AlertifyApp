@@ -38,6 +38,7 @@ class EmergencyVehicle : AppCompatActivity() , OnMapReadyCallback {
     private var _binding: ActivityEmergencyVehicleBinding ? = null
     private val binding: ActivityEmergencyVehicleBinding
         get() = _binding!!
+    var flick=0
 
 
 
@@ -192,13 +193,21 @@ binding.fab.setOnClickListener {
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
         val zoomLevel = 18.0f
 // Create a CameraUpdate object to zoom to the specified level
-        val cameraUpdate = CameraUpdateFactory.newLatLngZoom(sydney, zoomLevel)
+
+        if(flick==0){
+            val cameraUpdate = CameraUpdateFactory.newLatLngZoom(sydney, zoomLevel)
 
 // Apply the camera update
-        mMap.moveCamera(cameraUpdate)
+            mMap.moveCamera(cameraUpdate)
+        }
+        flick++
+        if(flick==30){
+            flick=0
+        }
 
 
-        Log.e("@@@@@","RECIVED LOCATION")
+
+//        Log.e("@@@@@","RECIVED LOCATION")
     }
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap

@@ -10,5 +10,8 @@
         android:drawable="@drawable/wave"
         android:gravity="bottom"
          />
+    <item android:drawable="@drawable/wave"
+android:gravity="top"
+        />
 
 </layer-list>

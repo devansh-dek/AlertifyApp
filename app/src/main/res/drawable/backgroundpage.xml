@@ -19,5 +19,6 @@
             android:insetLeft="0dp"
             android:insetRight="0dp" />
     </item>
+
 </layer-list>
 

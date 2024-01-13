@@ -22,7 +22,7 @@
         <ImageView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/imgthree"
+            android:src="@drawable/imgtwo"
             android:layout_gravity="center"
 
 
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="9dp"
             android:fontFamily="@font/poppinsmedium"
-            android:text="Do's------> \n 1.Use rightmost lanne for service. \n 2.Drive at a safe and reasonable speed, considering the road conditions and the safety of other road users\n 3.After completing the emergency response, stop the serivce  "
+            android:text="Do's------> \n 1.Use leftmost lane for service. \n 2.Drive at a safe and reasonable speed, considering the road conditions and the safety of other road users\n 3.After completing the emergency response, stop the serivce  "
             android:textSize="20dp"
             android:textColor="@color/black"
             android:layout_gravity="center"

@@ -63,7 +63,7 @@
                     android:background="@drawable/edittext"
                     android:layout_marginTop="20dp"
                     android:padding="8dp"
-                    android:hint="Ambulance Card Number"
+                    android:hint="Emergency Card Number"
                     android:drawableLeft="@drawable/baseline_person_4_24"
                     android:textColor="@color/black"
                     android:textColorHint="@color/darkblueish"
